@@ -27,4 +27,3 @@ $ISP1= array();
 			array_push($ISP1,$row1['ISP']);
 		}
     }
-
