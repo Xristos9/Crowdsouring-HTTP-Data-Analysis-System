@@ -141,7 +141,3 @@ function download(content, fileName, contentType) {
 	a.download = fileName;
 	a.click();
 }
-		   
-
-
-// vscode://vscode.github-authentication/did-authenticate?windowid=1&code=ba736c03eb9bf22d82cb&state=cfaa18fd-6327-4809-a2d5-09a0acc24ae7
