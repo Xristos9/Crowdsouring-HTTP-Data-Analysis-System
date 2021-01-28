@@ -28,5 +28,3 @@ $ISP1= array();
 		}
     }
 
-
-// print_r($counts);
