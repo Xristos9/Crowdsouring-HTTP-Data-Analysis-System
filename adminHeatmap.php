@@ -16,9 +16,7 @@
 </head>
 <body>
  
-	<?php
-		include "adminHeader.php";
-	?>
+	<?php include "adminHeader.php"; ?>
 	
 
 	<div id="map"></div>
@@ -115,9 +113,7 @@
 	</script>
 
 	
-	<?php
-		include "footer.php";
-	?>
+	<?php include "footer.php";?>
 	
 </body>
 </html>
