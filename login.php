@@ -37,6 +37,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])){
 				$_SESSION['email'] = $row['email'];
 				$_SESSION['userID'] = $row['userID'];
 				$_SESSION['idAdmin'] = $row['isAdmin'];
+				
 				if($row['isAdmin'] == 0){
 					header("Location: home.php");
 					exit();
