@@ -19,11 +19,20 @@ if(isset($_SESSION['userID']) && isset($_SESSION['userName'])){
 		$np = validate($_POST['np']);
 		$c_np = validate($_POST['c_np']);
 
+			// Validate password strength
+		$uppercase = preg_match('@[A-Z]@', $np);
+		$lowercase = preg_match('@[a-z]@', $np);
+		$number    = preg_match('@[0-9]@', $np);
+		$specialChars = preg_match('@[^\w]@', $np);
+
 		if(empty($op)){
 			header("Location: change-password.php?error=Old password is required");
 			exit();
 		} else if(empty($np)){
 			header("Location: change-password.php?error=New password is required");
+			exit();
+		}else if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($np) < 8) {
+			header("Location: change-password.php?error=Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character&$user_data");
 			exit();
 		} else if($np !== $c_np){
 			header("Location: change-password.php?error=The current password does not match");

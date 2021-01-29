@@ -3,7 +3,7 @@ session_start();
 include "db_conn.php";
 
 if (isset($_POST['uname']) && isset($_POST['password'])){
-   
+
 	function validate($data){
 		$data = trim($data);
 		$data = stripslashes($data);
@@ -23,10 +23,10 @@ if (isset($_POST['uname']) && isset($_POST['password'])){
 		header("Location: index.php?error=Password is required.");
 		exit();
 
-	} else { 
+	} else {
 		//hashing the password
 		//$pass = md5($pass);
-	   
+
 		$result = mysqli_query($conn, "SELECT * FROM person WHERE userName='$uname' AND password='$pass' ");
 		
 		if(mysqli_num_rows($result) === 1) {
@@ -38,11 +38,11 @@ if (isset($_POST['uname']) && isset($_POST['password'])){
 				$_SESSION['userID'] = $row['userID'];
 				$_SESSION['idAdmin'] = $row['isAdmin'];
 				
-				if($row['isAdmin'] == 0){
-					header("Location: home.php");
+				if($_SESSION['idAdmin']){
+					header("Location: adminHome.php");
 					exit();
 				} else{
-					header("Location: adminHome.php");
+					header("Location: home.php");
 					exit();
 				}
 
@@ -55,11 +55,9 @@ if (isset($_POST['uname']) && isset($_POST['password'])){
 			header("Location: index.php?error=Incorrect username or password.");
 			exit();
 		}
-	}    
+	}
 
-	
 } else{
 	header("Location: index.php");
 	exit();
 }
-

@@ -25,7 +25,7 @@
 			<input type="text" name="uname" placeholder="Enter user name"><?php }?>
 
 		<label>Email</label>
-		<?php if(isset($_GET['name'])) { ?> 
+		<?php if(isset($_GET['email'])) { ?> 
 			<input type="text" name="email" placeholder="Enter email" value="<?php echo $_GET['email']; ?>">
 		<?php } else{ ?>
 			<input type="text" name="email" placeholder="Enter email"> <?php }?>
