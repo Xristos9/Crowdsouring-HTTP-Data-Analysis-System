@@ -5,6 +5,7 @@ $result = mysqli_num_rows(mysqli_query($conn,"SELECT userID FROM `person`"));
 
 $method1 = mysqli_num_rows(mysqli_query($conn,"SELECT `entryID` FROM `hardata` WHERE `method`='POST'"));
 $method2 = mysqli_num_rows(mysqli_query($conn,"SELECT `entryID` FROM `hardata` WHERE `method`='GET'"));
+$method3 = mysqli_num_rows(mysqli_query($conn,"SELECT `entryID` FROM `hardata` WHERE `method`='OPTIONS'"));
 
 $status1 = mysqli_num_rows(mysqli_query($conn,"SELECT `entryID` FROM `hardata` WHERE `status`=0"));
 $status2 = mysqli_num_rows(mysqli_query($conn,"SELECT `entryID` FROM `hardata` WHERE `status`=200 OR `status`=201 OR `status`=204 OR `status`=206"));
@@ -18,12 +19,12 @@ $url1= array();
 		while($row = mysqli_fetch_assoc($result2)) {
 			array_push($url1,$row['url']);
 		}
-    }
-    
+	}
+	
 $result3 = mysqli_query($conn,"SELECT `ISP` FROM `ips` ORDER BY `ips`.`ISP` ASC");
 $ISP1= array();
 	if (mysqli_num_rows($result3) > 0) {
 		while($row1 = mysqli_fetch_assoc($result3)) {
 			array_push($ISP1,$row1['ISP']);
 		}
-    }
+	}

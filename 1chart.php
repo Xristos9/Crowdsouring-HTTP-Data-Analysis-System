@@ -37,15 +37,16 @@
 		let myChart3 = document.getElementById('myChart3').getContext('2d')
 		let myChart4 = document.getElementById('myChart4').getContext('2d')
 		const users = <?php echo $result; ?>; 
-		const nep = <?php echo $method1; ?>; 
-		const neg = <?php echo $method2; ?>; 
+		const nep = <?php echo $method1; ?>;
+		const neg = <?php echo $method2; ?>;
+		const nef = <?php echo $method3; ?>;
 
 		const s1 = <?php echo $status1; ?>;
 		const s2 = <?php echo $status2; ?>;
 		const s3 = <?php echo $status3; ?>;
 		const s4 = <?php echo $status4; ?>;
 		const s5 = <?php echo $status5; ?>;
-		
+
 		const u1= <?php echo json_encode($url1); ?>;
 		u2=countArr(u1).length
 
@@ -98,14 +99,14 @@
 		let massPopChart2 = new Chart(myChart2, {
 			type: 'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
 			data:{
-				labels:['GET','POST'],
+				labels:['GET','POST','OPTIONS'],
 				datasets:[{
 					label:'',
-					data:[neg, nep , 0],
+					data:[neg, nep ,nef, 0],
 					backgroundColor:[
 						'rgba(255, 99, 132, 0.8)',
 						'rgba(54, 162, 235, 0.8)',
-						'rgba(54, 162, 235, 0.8)'
+						'rgba(255, 159, 64, 0.8)'
 					],
 					borderWidth:1,
 					borderColor:'#777',
