@@ -18,4 +18,3 @@
 
 	$result3 = mysqli_query($conn,"SELECT entryID FROM `ips` WHERE `userID`=$userID");
 	$_SESSION["nOfEntries"]=mysqli_num_rows($result3);
-?>

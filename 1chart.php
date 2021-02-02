@@ -7,11 +7,11 @@
 	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- Sympols -->
 	<link rel="stylesheet" type="text/css" href="style.css"> 
-	<title>My Chart.js Chart</title>
+	<title>Question 1</title>
 </head>
 <body>
 
-	<?php       
+	<?php
 		include "adminHeader.php";
 		include "select1.php";
 	?>
@@ -67,7 +67,7 @@
 				labels:['Users','Unique ISPs'],
 				datasets:[{
 					label:'',
-					data:[users,par2,0],
+					data:[users,par2],
 					backgroundColor:[
 						'rgba(75, 192, 192, 0.8)',
 						'rgba(255, 159, 64, 0.8)'					
@@ -91,8 +91,14 @@
 				// Boolean - whether or not the chart should be responsive and resize when the browser does.
 				responsive: true,
 				// Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-				maintainAspectRatio: false
-
+				maintainAspectRatio: false,
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero: true
+						}
+					}]
+				}
 			}
 		})
 
@@ -138,7 +144,7 @@
 				labels:['0','Successful responses','Redirects','Client errors','Server errors'],
 				datasets:[{
 					label:'',
-					data:[s1, s2 ,s3,s4,s5, 0],
+					data:[s1, s2 ,s3,s4,s5],
 					backgroundColor:[
 						'rgba(54, 162, 235, 0.8)',
 						'rgba(75, 192, 192, 0.8)',
@@ -176,7 +182,7 @@
 				labels:[''],
 				datasets:[{
 					label:'Unique Domains',
-					data:[u2,0],
+					data:[u2],
 					backgroundColor:[
 						'rgba(153, 102, 255, 0.8)'
 					],
@@ -199,7 +205,14 @@
 				// Boolean - whether or not the chart should be responsive and resize when the browser does.
 				responsive: true,
 				// Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-				maintainAspectRatio: false
+				maintainAspectRatio: false,
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero: true
+						}
+					}]
+				}
 
 			}
 		})
@@ -210,8 +223,6 @@
 		
 	</script>
 
-	<?php
-		include "footer.php";
-	?>
+	<?php include "footer.php"; ?>
 </body>
 </html>
