@@ -18,7 +18,7 @@ if(isset($_SESSION['userID']) && isset($_SESSION['userName'])){
 	
 	<body>
 	
-	<?php include "adminHeader.php"; ?>	
+	<?php include "header.php"; ?>	
 	
 	<div class="page-wrapper">
 		<h1>Hello, <?php echo $_SESSION['userName']; ?></h1>

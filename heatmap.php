@@ -1,6 +1,4 @@
-<?php
-	include "select.php";
-?>
+<?php include "select.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +17,6 @@
 <body>
 
 	<?php include "header.php"; ?>
-	
 
 	<div id="map"></div>
 
@@ -38,7 +35,6 @@
 			for(var i of passedArray)
 				i && temp.push(i); // copy each non-empty value to the 'temp' array
 				// console.log(temp)
-
 
 			// count the duplicate ips
 			temp.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
@@ -76,8 +72,7 @@
 			'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
 				attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
 				maxZoom: 18
-			}
-			);
+			});
 
 			var cfg = {
 			// radius should be small ONLY if scaleRadius is true (or small radius is intended)
@@ -113,11 +108,7 @@
 
 	</script>
 
-	
 	<?php include "footer.php"; ?>
-	
+
 </body>
 </html>
-
-
-
