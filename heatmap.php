@@ -24,7 +24,7 @@
 		var testData = {
 			data:[]
 		}
-		window.onload = function() {
+		window.onload = async function() {
 			var temp=[]
 			var counts = {};
 			// assoc array to js array
@@ -38,7 +38,7 @@
 
 			// count the duplicate ips
 			temp.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
-			console.log(counts)
+			// console.log(counts)
 
 			// Remove the duplicate ips
 			const unique = [...new Set(temp)];
@@ -59,10 +59,10 @@
 					data.lng = response[i].lon
 					data.count = counts[unique[i]]
 					testData.data.push(data)
+					console.log(data)
 				}
 			};
 			var data = JSON.stringify(unique);
-
 			xhr.open('POST', endpoint, false);
 			xhr.send(data);
 
@@ -97,14 +97,12 @@
 
 			var map = new L.Map('map', {
 				center: new L.LatLng(38.246361, 21.734966),
-				zoom: 4,
+				zoom: 3,
 				layers: [baseLayer, heatmapLayer]
 			});
 
 			heatmapLayer.setData(testData);
-
-			
-		}; 
+		};
 
 	</script>
 
