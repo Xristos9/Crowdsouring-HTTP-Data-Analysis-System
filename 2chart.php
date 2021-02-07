@@ -13,7 +13,7 @@
 		background-color: #333;
 		margin-top: 10px;
 	}
-	
+
 	.topnav a {
 		float: left;
 		display: block;
@@ -22,7 +22,7 @@
 		text-decoration: none;
 		font-size: 17px;
 	}
-	
+
 	.active {
 		background-color: #4CAF50;
 		color: white;
@@ -138,12 +138,8 @@
 			datasets: [{
 				label: '# of Votes',
 				data: [12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2, 3,0],
-				backgroundColor: [
-					'rgba(255, 99, 132, 0.2)'
-				],
-				borderColor: [
-					'rgba(255, 99, 132, 1)'
-				],
+				backgroundColor:'rgba(255, 99, 132, 0.2)',
+				borderColor: 'rgba(255, 99, 132, 1)',
 				borderWidth: 1
 			}]
 		},
