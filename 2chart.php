@@ -77,7 +77,7 @@
 		}
 	</style>
 
-	<title>Chart No2</title>
+	<title>Question 2</title>
 </head>
 <body>
 

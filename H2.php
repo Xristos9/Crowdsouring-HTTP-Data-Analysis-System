@@ -24,6 +24,7 @@
 		var testData = {
 			data:[]
 		}
+		
 		window.onload = async function(){
 			await getData();
 			console.log(testData)
@@ -61,7 +62,7 @@
 			});
 
 			heatmapLayer.setData(testData);
-			}
+		}
 	
 
 		async function loadData(){
