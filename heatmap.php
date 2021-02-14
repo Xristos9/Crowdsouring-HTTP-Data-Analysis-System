@@ -26,32 +26,32 @@
 		}
 		window.onload = async function() {
 			var temp=[]
-			var counts = {};
+			var counts = {}
 			// assoc array to js array
 			var passedArray = <?php echo json_encode($servers); ?>;
-			// console.log(passedArray)
+			console.log(passedArray)
 
 			// Remove null from passedArray
 			for(var i of passedArray)
-				i && temp.push(i); // copy each non-empty value to the 'temp' array
-				// console.log(temp)
+				i && temp.push(i) // copy each non-empty value to the 'temp' array
+				console.log(temp)
 
 			// count the duplicate ips
-			temp.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
-			// console.log(counts)
+			temp.forEach(function(x) { counts[x] = (counts[x] || 0)+1; })
+			console.log(counts)
 
 			// Remove the duplicate ips
-			const unique = [...new Set(temp)];
-			// console.log(unique)
+			const unique = [...new Set(temp)]
+			console.log(unique)
 
 			// Find the cordinates for the ips, up to 100
 			// ip-api endpoint URL
-			const endpoint = 'http://ip-api.com/batch';
+			const endpoint = 'http://ip-api.com/batch'
 
-			var xhr = new XMLHttpRequest();
+			var xhr = new XMLHttpRequest()
 			xhr.onload = function() {
 				// Result array
-				var response = JSON.parse(this.responseText);
+				var response = JSON.parse(this.responseText)
 				// console.log(xhr)
 				for(var i in response){
 					data={}
@@ -59,12 +59,12 @@
 					data.lng = response[i].lon
 					data.count = counts[unique[i]]
 					testData.data.push(data)
-					console.log(data)
+					// console.log(data)
 				}
 			};
-			var data = JSON.stringify(unique);
-			xhr.open('POST', endpoint, false);
-			xhr.send(data);
+			var data = JSON.stringify(unique)
+			xhr.open('POST', endpoint, false)
+			xhr.send(data)
 
 			console.log(testData)
 
@@ -72,7 +72,7 @@
 			'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
 				attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
 				maxZoom: 18
-			});
+			})
 
 			var cfg = {
 			// radius should be small ONLY if scaleRadius is true (or small radius is intended)
@@ -90,19 +90,19 @@
 			lngField: 'lng',
 			// which field name in your data represents the data value - default "value"
 			valueField: 'count'
-			};
+			}
 
 
-			var heatmapLayer = new HeatmapOverlay(cfg);
+			var heatmapLayer = new HeatmapOverlay(cfg)
 
 			var map = new L.Map('map', {
 				center: new L.LatLng(38.246361, 21.734966),
 				zoom: 3,
 				layers: [baseLayer, heatmapLayer]
-			});
+			})
 
-			heatmapLayer.setData(testData);
-		};
+			heatmapLayer.setData(testData)
+		}
 
 	</script>
 

@@ -21,7 +21,7 @@ function readFile(input) {
 		var url=0
 		const getDomain = (url) => {
 			url = new URL(url).hostname
-			return url;
+			return url
 		}
 		var IP=0
 

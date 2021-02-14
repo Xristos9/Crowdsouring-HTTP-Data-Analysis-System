@@ -1,3 +1,5 @@
+<?php include "select.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +21,49 @@
 	<?php include "adminHeader.php"; ?>
 
 	<div id="map"></div>
+
 	<script>
+		var testData = []
+		var temp=[]
+		var counts = {};
+		// assoc array to js array
+		var passedArray = <?php echo json_encode($servers); ?>;
+		// console.log(passedArray)
+
+		// Remove null from passedArray
+		for(var i of passedArray)
+			i && temp.push(i); // copy each non-empty value to the 'temp' array
+			// console.log(temp)
+
+		// count the duplicate ips
+		temp.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
+		// console.log(counts)
+
+		// Remove the duplicate ips
+		const unique = [...new Set(temp)];
+		// console.log(unique)
+
+		const endpoint = 'http://ip-api.com/batch';
+
+		var xhr = new XMLHttpRequest();
+			xhr.onload = function() {
+				// Result array
+				var response = JSON.parse(this.responseText);
+				// console.log(xhr)
+				for(var i in response){
+					data={}
+					data.lat = response[i].lat
+					data.lng = response[i].lon
+					data.count = counts[unique[i]]
+					testData.push(data)
+				}
+			};
+
+		var data = JSON.stringify(unique);
+		xhr.open('POST', endpoint, false);
+		xhr.send(data);
+		console.log(testData)
+
 		
 		var mymap = L.map('map').setView([0,0], 3);
 		const marker = []
@@ -30,6 +74,12 @@
 		const tiles = L.tileLayer(tileUrl, { attribution });
 		tiles.addTo(mymap);
 
+		userMarker(38.246361, 21.734966)
+
+		for(var i in testData){
+			serverMarker(testData[i].lat,testData[i].lng)
+			polyline(38.246361, 21.734966,testData[i].lat,testData[i].lng,testData[i].count/6)
+		}
 		function userMarker(lat,lng){
 			var myIcon = L.icon({
 				iconUrl: 'icon1.png',
@@ -51,12 +101,6 @@
 		function polyline(lat1,lng1,lat2,lng2,wt){
 			L.polyline([[lat1, lng1],[lat2, lng2]], {color: 'purple',weight: wt}).addTo(mymap);
 		}
-
-		userMarker(0,0)
-		serverMarker(10,10)
-		serverMarker(38.246361, 21.734966)
-		polyline(0,0,10,10,5)
-		polyline(0,0,38.246361, 21.734966,10)
 
 
 	</script>

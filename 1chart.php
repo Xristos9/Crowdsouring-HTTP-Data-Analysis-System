@@ -36,7 +36,7 @@
 		let myChart2 = document.getElementById('myChart2').getContext('2d')
 		let myChart3 = document.getElementById('myChart3').getContext('2d')
 		let myChart4 = document.getElementById('myChart4').getContext('2d')
-		const users = <?php echo $result; ?>; 
+		const users = <?php echo $result; ?>;
 		const nep = <?php echo $method1; ?>;
 		const neg = <?php echo $method2; ?>;
 		const nef = <?php echo $method3; ?>;
@@ -85,8 +85,7 @@
 					fontSize:25
 				},
 				legend:{
-					display: false,
-					position:'bottom'
+					display: false
 				},
 				// Boolean - whether or not the chart should be responsive and resize when the browser does.
 				responsive: true,
@@ -108,7 +107,7 @@
 				labels:['GET','POST','OPTIONS'],
 				datasets:[{
 					label:'',
-					data:[neg, nep ,nef, 0],
+					data:[neg, nep ,nef],
 					backgroundColor:[
 						'rgba(255, 99, 132, 0.8)',
 						'rgba(54, 162, 235, 0.8)',
@@ -133,7 +132,14 @@
 				// Boolean - whether or not the chart should be responsive and resize when the browser does.
 				responsive: true,
 				// Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-				maintainAspectRatio: false
+				maintainAspectRatio: false,
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero: true
+						}
+					}]
+				}
 
 			}
 		})

@@ -11,6 +11,8 @@
 			array_push($servers,$row['serverIPAddress']);
 		}
 	}
+	// print_r($servers);
+	
 	
 	$result2 = mysqli_fetch_assoc(mysqli_query($conn,"SELECT MAX(Date) FROM ips WHERE `userID`=$userID"));
 	$_SESSION["uDate"]=$result2['MAX(Date)'];
