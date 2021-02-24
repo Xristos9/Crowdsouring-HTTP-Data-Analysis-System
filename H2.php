@@ -66,7 +66,7 @@
 	
 
 		async function loadData(){
-			var temp=[]
+			var temp = []
 			var counts = {};
 			// assoc array to js array
 			var passedArray = <?php echo json_encode($servers); ?>;

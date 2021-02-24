@@ -29,20 +29,20 @@
 			var counts = {}
 			// assoc array to js array
 			var passedArray = <?php echo json_encode($servers); ?>;
-			console.log(passedArray)
+			// console.log(passedArray)
 
 			// Remove null from passedArray
 			for(var i of passedArray)
 				i && temp.push(i) // copy each non-empty value to the 'temp' array
-				console.log(temp)
+				// console.log(temp)
 
 			// count the duplicate ips
 			temp.forEach(function(x) { counts[x] = (counts[x] || 0)+1; })
-			console.log(counts)
+			// console.log(counts)
 
 			// Remove the duplicate ips
 			const unique = [...new Set(temp)]
-			console.log(unique)
+			// console.log(unique)
 
 			// Find the cordinates for the ips, up to 100
 			// ip-api endpoint URL
@@ -54,17 +54,17 @@
 				var response = JSON.parse(this.responseText)
 				// console.log(xhr)
 				for(var i in response){
-					data={}
-					data.lat = response[i].lat
-					data.lng = response[i].lon
-					data.count = counts[unique[i]]
-					testData.data.push(data)
+					data1={}
+					data1.lat = response[i].lat
+					data1.lng = response[i].lon
+					data1.count = counts[unique[i]]
+					testData.data.push(data1)
 					// console.log(data)
 				}
 			};
-			var data = JSON.stringify(unique)
+			const data2 = JSON.stringify(unique)
 			xhr.open('POST', endpoint, false)
-			xhr.send(data)
+			xhr.send(data2)
 
 			console.log(testData)
 

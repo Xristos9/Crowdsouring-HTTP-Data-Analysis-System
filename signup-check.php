@@ -23,10 +23,9 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 	// Validate password strength
 	$uppercase = preg_match('@[A-Z]@', $pass);
 	$lowercase = preg_match('@[a-z]@', $pass);
-	$number    = preg_match('@[0-9]@', $pass);
+	$number = preg_match('@[0-9]@', $pass);
 	$specialChars = preg_match('@[^\w]@', $pass);
 	
-
 
 	if(empty($uname)){
 		header("Location: signup.php?error=User Name is required&$user_data");
@@ -60,10 +59,10 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 			header("Location: signup.php?error=This email is used, try another one&$user_data");
 			exit();
 		} else{
-			$result3 = mysqli_query($conn, "INSERT INTO person(userName, password, email) VALUES('$uname', '$pass', '$email')"); 
+			$result3 = mysqli_query($conn, "INSERT INTO person(userName, password, email) VALUES('$uname', '$pass', '$email')");
 
 			if($result3) {
-				header("Location: signup.php?success=Accound has been created successfully&$user_data");
+				header("Location: signup.php?success=Account has been created successfully&$user_data");
 				exit();
 			} else{
 				header("Location: signup.php?error=An unexpected error has been occurred&$user_data");

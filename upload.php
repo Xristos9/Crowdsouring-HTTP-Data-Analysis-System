@@ -1,7 +1,7 @@
 <?php
-    include "db_conn.php";
-    session_start();
-	$u=$_SESSION["userID"];
+	include "db_conn.php";
+	session_start();
+	$u = $_SESSION["userID"];
 	$k = json_decode($_POST["kati"], true);
 	
 	$a = (array_shift($k));

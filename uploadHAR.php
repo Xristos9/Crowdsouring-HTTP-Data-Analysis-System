@@ -34,7 +34,6 @@
 		<br>
 		<br>
 		<button class="uBt" id="up">Upload to server</button>
-
 	</div>
 	
 	<?php include "footer.php"; ?>

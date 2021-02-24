@@ -9,8 +9,8 @@ if(isset($_SESSION['userID']) && isset($_SESSION['userName'])){
 		&& isset($_POST['c_nu'])){
 	   
 		function validate($data){
-			$data = trim($data);
-			$data = stripslashes($data);
+			$data = trim($data); //remove spaces
+			$data = stripslashes($data); //remove quotes -> read as text
 			$data = htmlspecialchars($data);
 			return $data;
 		}

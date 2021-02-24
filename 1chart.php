@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
-	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- Sympols -->
 	<link rel="stylesheet" type="text/css" href="style.css"> 
 	<title>Question 1</title>
@@ -19,7 +18,7 @@
 		<canvas id="myChart" width="0" height="0"></canvas>
 		<canvas id="myChart2" width="0" height="0"></canvas>
 		<canvas id="myChart3" width="0" height="0"></canvas>
-		<canvas id="myChart4" width="0" height="0"></canvas>	
+		<canvas id="myChart4" width="0" height="0"></canvas>
 	</div>
 	<div class="page-wrapper">
 		
@@ -53,7 +52,7 @@
 		const par1= <?php echo json_encode($ISP1); ?>;
 		par2=countArr(par1).length
 
-		console.log(par2)
+		// console.log(par2)
 	
 		// Chart Options
 		Chart.defaults.global.defaultFontFamily = 'Lato'
@@ -87,10 +86,6 @@
 				legend:{
 					display: false
 				},
-				// Boolean - whether or not the chart should be responsive and resize when the browser does.
-				responsive: true,
-				// Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-				maintainAspectRatio: false,
 				scales: {
 					yAxes: [{
 						ticks: {
@@ -129,10 +124,6 @@
 					display: false,
 					position:'bottom'
 				},
-				// Boolean - whether or not the chart should be responsive and resize when the browser does.
-				responsive: true,
-				// Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-				maintainAspectRatio: false,
 				scales: {
 					yAxes: [{
 						ticks: {
@@ -173,11 +164,7 @@
 				legend:{
 					display: true,
 					position:'right'
-				},
-				// Boolean - whether or not the chart should be responsive and resize when the browser does.
-				responsive: true,
-				// Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-				maintainAspectRatio: false
+				}
 
 			}
 		})
@@ -208,10 +195,6 @@
 					display: true,
 					position:'bottom'
 				},
-				// Boolean - whether or not the chart should be responsive and resize when the browser does.
-				responsive: true,
-				// Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-				maintainAspectRatio: false,
 				scales: {
 					yAxes: [{
 						ticks: {

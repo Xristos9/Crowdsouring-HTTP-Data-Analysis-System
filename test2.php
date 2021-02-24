@@ -41,6 +41,8 @@
 	// 	});
 	// 	return kati1
 	// }
+
+
 	var testData={}
 	var filtered=[]
 	var counts=[]
@@ -91,7 +93,7 @@
 		xhr.send(data)
 	}
 
-console.log(testData)
+	console.log(testData)
 	</script>
 </body>
 </html>

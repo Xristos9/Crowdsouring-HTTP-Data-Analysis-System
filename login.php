@@ -5,8 +5,8 @@ include "db_conn.php";
 if (isset($_POST['uname']) && isset($_POST['password'])){
 
 	function validate($data){
-		$data = trim($data);
-		$data = stripslashes($data);
+		$data = trim($data); //remove spaces
+		$data = stripslashes($data); //remove quotes -> read as text
 		$data = htmlspecialchars($data);
 		return $data;
 	}
@@ -31,7 +31,6 @@ if (isset($_POST['uname']) && isset($_POST['password'])){
 		
 		if(mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_assoc($result);
-			print_r($result);
 			if($row['userName'] === $uname && $row['password'] === $pass){
 				$_SESSION['userName'] = $row['userName'];
 				$_SESSION['email'] = $row['email'];

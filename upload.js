@@ -1,7 +1,7 @@
 var E= [] //make empty js object
 
 $.getJSON("http://ip-api.com/json/?fields=61439", function(data) {
-		info={}
+		info = {}
 
 		info.ip = data.query
 		info.lat = data.lat
@@ -12,18 +12,18 @@ $.getJSON("http://ip-api.com/json/?fields=61439", function(data) {
 
 function readFile(input) {
 	const file = new FileReader()
-	const read=file.readAsText(input.files[0])
+	const read = file.readAsText(input.files[0])
 
 	file.onload = function(e) {
 		const data = JSON.parse(e.currentTarget.result)
 		// console.log(e)
 
-		var url=0
+		var url = 0
 		const getDomain = (url) => {
 			url = new URL(url).hostname
 			return url
 		}
-		var IP=0
+		var IP = 0
 
 		// Remove brackets from IPv6
 		const removeBrackets =(IP) => {
@@ -39,7 +39,7 @@ function readFile(input) {
 
 			entries.startedDateTime = data.log.entries[i].startedDateTime
 			entries.serverIPAddress = removeBrackets(IP)
-			entries.timingsWait= data.log.entries[i].timings.wait
+			entries.timingsWait = data.log.entries[i].timings.wait
 			entries.method = data.log.entries[i].request.method
 			entries.url = getDomain(url)
 			entries.status = data.log.entries[i].response.status

@@ -9,8 +9,8 @@ if(isset($_SESSION['userID']) && isset($_SESSION['userName'])){
 		&& isset($_POST['c_np'])){
 	
 		function validate($data){
-			$data = trim($data);
-			$data = stripslashes($data);
+			$data = trim($data); //remove spaces
+			$data = stripslashes($data); //remove quotes -> read as text
 			$data = htmlspecialchars($data);
 			return $data;
 		}
@@ -19,10 +19,10 @@ if(isset($_SESSION['userID']) && isset($_SESSION['userName'])){
 		$np = validate($_POST['np']);
 		$c_np = validate($_POST['c_np']);
 
-			// Validate password strength
+		// Validate password strength
 		$uppercase = preg_match('@[A-Z]@', $np);
 		$lowercase = preg_match('@[a-z]@', $np);
-		$number    = preg_match('@[0-9]@', $np);
+		$number = preg_match('@[0-9]@', $np);
 		$specialChars = preg_match('@[^\w]@', $np);
 
 		if(empty($op)){

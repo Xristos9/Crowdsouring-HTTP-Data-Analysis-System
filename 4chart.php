@@ -51,7 +51,7 @@
 				var response = JSON.parse(this.responseText);
 				// console.log(xhr)
 				for(var i in response){
-					data={}
+					data = {}
 					data.lat = response[i].lat
 					data.lng = response[i].lon
 					data.count = counts[unique[i]]
