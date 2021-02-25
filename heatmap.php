@@ -25,7 +25,7 @@
 			data:[]
 		}
 		window.onload = async function() {
-			var temp=[]
+			var temp = []
 			var counts = {}
 			// assoc array to js array
 			var passedArray = <?php echo json_encode($servers); ?>;
@@ -44,17 +44,20 @@
 			const unique = [...new Set(temp)]
 			// console.log(unique)
 
-			// Find the cordinates for the ips, up to 100
-			// ip-api endpoint URL
-			const endpoint = 'http://ip-api.com/batch'
 
-			var xhr = new XMLHttpRequest()
+			// Find the cordinates for the ips, up to 100
+			const data2 = JSON.stringify(unique)
+			
+			const xhr = new XMLHttpRequest()
+			xhr.open('POST','http://ip-api.com/batch', false)
+			xhr.send(data2)
+
 			xhr.onload = function() {
 				// Result array
-				var response = JSON.parse(this.responseText)
+				const response = JSON.parse(this.responseText)
 				// console.log(xhr)
 				for(var i in response){
-					data1={}
+					data1 = {}
 					data1.lat = response[i].lat
 					data1.lng = response[i].lon
 					data1.count = counts[unique[i]]
@@ -62,9 +65,6 @@
 					// console.log(data)
 				}
 			};
-			const data2 = JSON.stringify(unique)
-			xhr.open('POST', endpoint, false)
-			xhr.send(data2)
 
 			console.log(testData)
 

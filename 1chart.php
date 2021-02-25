@@ -30,11 +30,10 @@
 			return unique
 		}
 
-
-		let myChart = document.getElementById('myChart').getContext('2d')
-		let myChart2 = document.getElementById('myChart2').getContext('2d')
-		let myChart3 = document.getElementById('myChart3').getContext('2d')
-		let myChart4 = document.getElementById('myChart4').getContext('2d')
+		const myChart = document.getElementById('myChart').getContext('2d')
+		const myChart2 = document.getElementById('myChart2').getContext('2d')
+		const myChart3 = document.getElementById('myChart3').getContext('2d')
+		const myChart4 = document.getElementById('myChart4').getContext('2d')
 		const users = <?php echo $result; ?>;
 		const nep = <?php echo $method1; ?>;
 		const neg = <?php echo $method2; ?>;
@@ -46,11 +45,11 @@
 		const s4 = <?php echo $status4; ?>;
 		const s5 = <?php echo $status5; ?>;
 
-		const u1= <?php echo json_encode($url1); ?>;
-		u2=countArr(u1).length
+		const u1 = <?php echo json_encode($url1); ?>;
+		u2 = countArr(u1).length
 
-		const par1= <?php echo json_encode($ISP1); ?>;
-		par2=countArr(par1).length
+		const par1 = <?php echo json_encode($ISP1); ?>;
+		par2 = countArr(par1).length
 
 		// console.log(par2)
 	
@@ -206,10 +205,6 @@
 			}
 		})
 
-
-
-
-		
 	</script>
 
 	<?php include "footer.php"; ?>

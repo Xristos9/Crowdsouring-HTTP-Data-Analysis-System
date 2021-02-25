@@ -7,7 +7,7 @@
 			<p>
 				XSD Development is a multipurpose blog ideal for analizing .har extension files.
 					However, this page seems like a real one we asure you  
-					that the content you're about to see is just in purpose of our W.E.B. development project.
+					that the content you are about to see is just in purpose of our W.E.B. development project.
 			</p>
 				
 			<div class="contact">

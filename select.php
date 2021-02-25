@@ -5,7 +5,7 @@
 	$userID=$_SESSION["userID"];
 
 	$result = mysqli_query($conn,"SELECT serverIPAddress FROM hardata INNER JOIN ips ON hardata.entryID = ips.entryID WHERE `ips`.`userID`=$userID AND (RsContentType like '%html%' OR RsContentType like '%javascript%' OR RsContentType like '%php%' OR RqContentType like '%html%' OR RqContentType like '%javascript%' OR RqContentType like '%php%') ORDER BY `hardata`.`serverIPAddress` ASC");
-	$servers= array();
+	$servers = array();
 	if (mysqli_num_rows($result) > 0) {
 		while($row = mysqli_fetch_assoc($result)) {
 			array_push($servers,$row['serverIPAddress']);

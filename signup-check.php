@@ -6,8 +6,8 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 	&& isset($_POST['email']) && isset($_POST['re_password'])){
 
 	function validate($data){
-		$data = trim($data);
-		$data = stripslashes($data);
+		$data = trim($data); //remove spaces
+		$data = stripslashes($data); //remove quotes -> read as text
 		$data = htmlspecialchars($data);
 		return $data;
 	}
@@ -70,7 +70,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 			}
 		}
 	}
-	} else {
-	header("Location: signup.php");
-	exit();
+} else {
+header("Location: signup.php");
+exit();
 }

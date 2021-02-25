@@ -1,8 +1,4 @@
-<?php
-session_start();
-
-if(isset($_SESSION['userID']) && isset($_SESSION['userName'])){
-?>
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,10 +24,3 @@ if(isset($_SESSION['userID']) && isset($_SESSION['userName'])){
 
 </body>
 </html>
-
-<?php
-} else{
-	header("Location: index.php");
-	exit();
-}
-?>

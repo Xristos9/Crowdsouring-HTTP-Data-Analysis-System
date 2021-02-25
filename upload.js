@@ -1,6 +1,7 @@
-var E= [] //make empty js object
+var E = [] //make empty js object
 
-$.getJSON("http://ip-api.com/json/?fields=61439", function(data) {
+$.getJSON("http://ip-api.com/json/?fields=61439", 
+	function(data) {
 		info = {}
 
 		info.ip = data.query
@@ -8,11 +9,11 @@ $.getJSON("http://ip-api.com/json/?fields=61439", function(data) {
 		info.lon = data.lon
 		info.par = data.isp
 		E.push(info)
-	})
+	}
+)
 
 function readFile(input) {
 	const file = new FileReader()
-	const read = file.readAsText(input.files[0])
 
 	file.onload = function(e) {
 		const data = JSON.parse(e.currentTarget.result)
@@ -26,7 +27,7 @@ function readFile(input) {
 		var IP = 0
 
 		// Remove brackets from IPv6
-		const removeBrackets =(IP) => {
+		const removeBrackets = (IP) => {
 			IP = IP.replace("[","").replace("]","")
 			return IP
 		}
@@ -97,7 +98,7 @@ function readFile(input) {
 
 		console.log(E)
 
-		var myJSONText = JSON.stringify(E,null,2)
+		const myJSONText = JSON.stringify(E,null,2)
 		//console.log(myJSONText)
 		document.getElementById("up").addEventListener("click", function() {
 			$.ajax({

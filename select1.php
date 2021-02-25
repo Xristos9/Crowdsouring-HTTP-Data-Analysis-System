@@ -19,8 +19,8 @@ $url1 = array();
 		while($row = mysqli_fetch_assoc($result2)) {
 			array_push($url1,$row['url']);
 		}
-	}
-	
+	}	
+
 $result3 = mysqli_query($conn,"SELECT `ISP` FROM `ips` ORDER BY `ips`.`ISP` ASC");
 $ISP1 = array();
 	if (mysqli_num_rows($result3) > 0) {
